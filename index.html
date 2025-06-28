@@ -1,369 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Mpumalanga Getaway ✨ Road Trip Adventure</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <!-- Google Fonts: Poppins (modern), Pacifico (script), Merriweather (serif for longer text) -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Pacifico&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif; /* Modern, clean font */
-      background: linear-gradient(to bottom right, #edf9ff, #fcf4f0); /* Softer, inviting gradient */
-      color: #333;
-      overflow-x: hidden; /* Prevent horizontal scroll */
-    }
-    .title-font {
-      font-family: 'Pacifico', cursive; /* Playful font for main titles */
-    }
-    .content-font {
-        font-family: 'Merriweather', serif; /* Readable serif for detailed content */
-    }
-    .card-shadow {
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Deeper, softer shadow */
-    }
-    .btn-gradient {
-      background: linear-gradient(to right, #4CAF50, #8BC34A); /* Green gradient */
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-    .btn-gradient:hover {
-      transform: translateY(-3px) scale(1.02); /* More pronounced lift */
-      box-shadow: 0 12px 25px rgba(0, 128, 0, 0.4);
-    }
-    .btn-blue-gradient {
-      background: linear-gradient(to right, #3B82F6, #60A5FA); /* Blue gradient */
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-    .btn-blue-gradient:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 12px 25px rgba(59, 130, 246, 0.4);
-    }
-    .fade-in {
-      animation: fadeIn 0.8s ease-out forwards;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .tab-button {
-      @apply px-4 py-2 text-base md:px-6 md:py-3 md:text-lg font-semibold rounded-t-lg transition-colors duration-300 relative z-10; /* Adjusted for mobile padding */
-      border-bottom: 3px solid transparent;
-    }
-    .tab-button.active {
-      @apply bg-white text-blue-700;
-      border-color: #3B82F6;
-      box-shadow: 0 -5px 10px rgba(0,0,0,0.05); /* Shadow for active tab */
-    }
-    .tab-button:not(.active) {
-      @apply bg-gray-100 text-gray-600 hover:bg-gray-200;
-    }
-    .itinerary-day-card {
-        background-color: #ffffff;
-        padding: 1.5rem;
-        border-radius: 0.75rem;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        border-left: 5px solid; /* Placeholder for dynamic color */
-        transition: transform 0.2s ease-in-out;
-    }
-    .itinerary-day-card:hover {
-        transform: translateY(-5px);
-    }
-    .grid-col-2 {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    @media (min-width: 768px) {
-        .grid-col-2 {
-            grid-template-columns: 1fr 1fr;
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mpumalanga Road Trip ✨ Adventure Awaits</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Google Fonts: Inter (clean sans-serif), Bebas Neue (bold, condensed for headings) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f7f9; /* A very light grey/blue for a clean base */
+            color: #333;
+            overflow-x: hidden;
         }
-    }
-    .image-gallery img {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .image-gallery img:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
-    .gallery-item {
-        @apply relative rounded-lg overflow-hidden card-shadow;
-    }
-    .gallery-item-caption {
-        @apply absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent text-white p-4 text-center text-sm font-semibold opacity-0 transition-opacity duration-300;
-    }
-    .gallery-item:hover .gallery-item-caption {
-        opacity: 1;
-    }
+        .heading-font-bold {
+            font-family: 'Bebas Neue', cursive;
+        }
+        .main-heading {
+            font-size: clamp(3rem, 10vw, 7rem); /* Responsive font size */
+            line-height: 0.9;
+            letter-spacing: 0.05em;
+        }
+        .section-card {
+            background-color: #ffffff;
+            border-radius: 1.5rem; /* More rounded */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* Stronger, softer shadow */
+            padding: 2.5rem; /* More internal spacing */
+        }
+        .btn-primary {
+            background-color: #0A0A0A; /* Dark button for high contrast */
+            color: #FFFFFF;
+            padding: 1rem 2.5rem;
+            border-radius: 0.75rem;
+            font-weight: 700;
+            font-size: 1.125rem; /* text-lg */
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        .btn-primary:hover {
+            background-color: #333333;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+        }
+        .tab-button {
+            @apply px-6 py-3 text-lg font-semibold rounded-t-xl transition-all duration-300 relative z-10;
+            border-bottom: 3px solid transparent;
+            min-width: 120px; /* Ensure tabs have a minimum width */
+            text-align: center;
+        }
+        .tab-button.active {
+            @apply bg-white text-blue-700;
+            border-color: #3B82F6;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.08); /* Stronger shadow for active tab */
+        }
+        .tab-button:not(.active) {
+            @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
+        }
+        .itinerary-day-card {
+            background-color: #f8faff; /* Light blue tint */
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 5px solid;
+            transition: transform 0.2s ease-in-out;
+        }
+        .itinerary-day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .image-collage {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+        .image-collage img {
+            border-radius: 1rem;
+            object-fit: cover;
+            width: 100%;
+            height: 180px; /* Fixed height for consistency */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .image-collage img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+        }
 
-    /* Custom scrollbar for better aesthetic */
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 10px;
-    }
-    ::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 10px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-    }
-  </style>
+        /* Responsive grid for main content */
+        .main-content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        @media (min-width: 992px) { /* Larger breakpoint for 2-column layout */
+            .main-content-grid {
+                grid-template-columns: 1.2fr 1fr; /* Text wider than image */
+            }
+        }
+    </style>
 </head>
-<body class="min-h-screen flex flex-col items-center pb-10">
+<body class="min-h-screen flex flex-col">
 
-  <!-- Hero Section with Image -->
-  <div class="w-full bg-cover bg-center h-80 md:h-96 relative flex items-center justify-center text-white" style="background-image: url('https://source.unsplash.com/1920x1080/?mpumalanga-landscape,safari,south-africa');">
-    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-75"></div>
-    <div class="z-10 text-center p-4">
-      <h1 class="text-5xl md:text-7xl title-font mb-3 leading-tight drop-shadow-lg animate-fade-in">Our Mpumalanga Getaway <span class="text-yellow-400">✨</span></h1>
-      <p class="text-xl md:text-3xl font-semibold drop-shadow-md animate-fade-in delay-200">Adventure Awaits: Katlego, Monesha, Sbanesihle & Spiwe</p>
-    </div>
-  </div>
-
-  <main class="w-full max-w-5xl px-4 mt-8">
-    <section class="bg-white p-8 rounded-2xl card-shadow mb-10 border-l-8 border-blue-500 fade-in">
-      <h2 class="text-3xl text-gray-800 mb-5 flex items-center font-bold title-font">
-            <svg class="w-8 h-8 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            Trip Overview
-        </h2>
-      <ul class="text-lg text-gray-700 space-y-3 content-font">
-        <li class="flex items-center"><span class="text-yellow-500 mr-3">🗓️</span> <span class="font-semibold">5 Days</span> | <span class="font-semibold">Self-Drive Adventure</span> | Start: <span class="font-semibold">05:00 AM sharp</span> from Octave Complex, Midrand</li>
-        <li class="flex items-center"><span class="text-green-500 mr-3">⚡</span> Total Driving Distance (Round Trip): <span class="font-semibold">~1275 - 1360 km</span></li>
-        <li class="flex items-center"><span class="text-red-500 mr-3">⏰</span> Total Estimated Drive Time: <span class="font-semibold">15h 40m - 17h 15m</span></li>
-        <li class="flex items-center"><span class="text-orange-500 mr-3">🛣️</span> Route: Midrand ➡️ Blyde River ➡️ Panorama ➡️ Marloth Park ➡️ Midrand</li>
-      </ul>
-    </section>
-
-    <section class="bg-white p-8 rounded-2xl card-shadow mb-10 border-l-8 border-yellow-500 fade-in">
-      <h2 class="text-3xl text-gray-800 mb-5 flex items-center font-bold title-font">
-            <svg class="w-8 h-8 mr-3 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592L2.147 14.1a.7.7 0 010-.953l6.596-6.596a.7.7 0 01.953 0zM17.853 10.8a.7.7 0 010 .953l-6.596 6.596a.7.7 0 01-.953 0V5.882a1.76 1.76 0 013.417-.592L17.853 10.8z"></path></svg>
-            Your Check-in Booth <span class="ml-2">🎟️</span>
-        </h2>
-      <p class="text-md text-gray-600 mb-6 content-font">Choose your name below to get your personalized boarding pass:</p>
-      <select id="passenger" class="mt-2 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-200 text-gray-700 text-lg">
-        <option value="">-- Select Passenger --</option>
-        <option value="Katlego Pooe">Katlego Pooe</option>
-        <option value="Monesha Maramwidze">Monesha Maramwidze</option>
-        <option value="Sbanesihle Motlomelo">Sbanesihle Motlomelo</option>
-        <option value="Spiwe Moyo">Spiwe Moyo</option>
-      </select>
-      <button onclick="generateBoardingPass()" class="mt-6 px-8 py-4 btn-blue-gradient text-white font-bold rounded-xl w-full shadow-lg flex items-center justify-center text-xl">
-            Check In Now!
-            <svg class="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-        </button>
-    </div>
-
-    <div id="boardingPass" class="hidden bg-white p-8 rounded-2xl card-shadow text-center fade-in mb-10">
-      <h3 class="text-3xl font-bold text-gray-800 mb-4 flex items-center justify-center title-font">
-            Boarding Pass Ready <span class="ml-3 text-yellow-500">✈️</span>
-        </h3>
-      <p id="passName" class="text-xl my-4 font-extrabold text-blue-700"></p>
-      <button id="downloadBtn" onclick="downloadStyledPass()" class="mt-6 inline-flex items-center btn-gradient text-white font-bold px-8 py-4 rounded-xl shadow-lg text-xl">
-            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-            Download Your Pass
-        </button>
-    </div>
-
-    <!-- Interactive Tabs Section -->
-    <section class="bg-white rounded-2xl card-shadow overflow-hidden mb-10 fade-in">
-      <div class="flex flex-wrap border-b border-gray-200">
-        <button class="tab-button active" onclick="openTab(event, 'itinerary')">Detailed Itinerary</button>
-        <button class="tab-button" onclick="openTab(event, 'budget')">Budget & Logistics</button>
-        <button class="tab-button" onclick="openTab(event, 'highlights')">Quick Highlights</button>
-        <button class="tab-button" onclick="openTab(event, 'about')">About This Trip</button>
-        <button class="tab-button" onclick="openTab(event, 'team')">Team & Content</button>
-      </div>
-
-      <div id="itinerary" class="tab-content p-6 md:p-8">
-        <h3 class="text-2xl md:text-3xl font-bold text-blue-700 mb-6 title-font">Your Day-by-Day Adventure 🗺️</h3>
-        <div class="space-y-8 text-gray-700 content-font">
-          <div class="itinerary-day-card border-blue-400">
-                <h4 class="font-semibold text-xl text-blue-800 mb-2">Day 1: 16 Jul - 17 Jul: Departure + Blyde Canyon Cruise + Leadwood Tented Camp</h4>
-                <p class="mb-2"><strong>Accommodation:</strong> Luxury Tented Camp: Leadwood, Hoedspruit</p>
-                <p class="mb-2"><strong>Meals:</strong> Breakfast Included</p>
-                <p class="mb-2"><strong>Activities:</strong>
-                    <ul class="list-disc list-inside ml-4 space-y-1">
-                        <li>05:30 for 06:00 - Leave Midrand to Blyde Canyon (5h 50m Drive)</li>
-                        <li>13:00 - Blyde River Canyon Boat Cruise (1h 30m Cruise)</li>
-                    </ul>
-                </p>
-                <img src="https://source.unsplash.com/800x450/?blyde-river-canyon-boat-cruise,hohohohohoedspruit" alt="Blyde River Canyon" class="w-full h-auto rounded-lg mt-4 shadow-md">
-          </div>
-          <div class="itinerary-day-card border-green-400">
-            <h4 class="font-semibold text-xl text-green-800 mb-2">Day 2: 17 Jul - 18 Jul: Panorama Route Exploration + Climbing Fig Cottage / Da Gama Hazyview</h4>
-                <p class="mb-2"><strong>Accommodation:</strong> Climbing Fig Cottage, Mbombela / Da Gama, Hazyview</p>
-                <p class="mb-2"><strong>Meals:</strong> All Included</p>
-                <p class="mb-2"><strong>Activities:</strong>
-                    <ul class="list-disc list-inside ml-4 space-y-1">
-                        <li>12:00 - Bourke's Luck Potholes</li>
-                        <li>13:00 - Lisbon Falls</li>
-                        <li>14:00 - God's Window</li>
-                        <li>15:00 - Graskop Gorge Lift</li>
-                        <li>17:00 - Check in accommodation Da Gama, Hazyview</li>
-                    </ul>
-                </p>
-                <img src="https://source.unsplash.com/800x450/?gods-window,lisbon-falls-mpumalanga" alt="Panorama Route Views" class="w-full h-auto rounded-lg mt-4 shadow-md">
-          </div>
-          <div class="itinerary-day-card border-purple-400">
-            <h4 class="font-semibold text-xl text-purple-800 mb-2">Day 3: 18 Jul - 19 Jul: Quad Biking + A-Frame Cabin in Marloth Park</h4>
-                <p class="mb-2"><strong>Accommodation:</strong> A-Frame Cabin in Marloth Park</p>
-                <p class="mb-2"><strong>Meals:</strong> All Included</p>
-                <p class="mb-2"><strong>Activities:</strong>
-                    <ul class="list-disc list-inside ml-4 space-y-1">
-                        <li>13:00 - Quad Biking Extreme Adventure Camp Hazyview</li>
-                        <li>15:00 - Check in A-Frame Cabin in Marloth Park</li>
-                    </ul>
-                </p>
-                <img src="https://source.unsplash.com/800x450/?quad-biking,hazyview" alt="Quad Biking" class="w-full h-auto rounded-lg mt-4 shadow-md">
-          </div>
-          <div class="itinerary-day-card border-yellow-400">
-            <h4 class="font-semibold text-xl text-yellow-800 mb-2">Day 4: 19 Jul - 20 Jul: Sunrise Game Drive + Go Karting Marloth Park</h4>
-                <p class="mb-2"><strong>Accommodation:</strong> A-Frame Cabin in Marloth Park</p>
-                <p class="mb-2"><strong>Meals:</strong> All Included</p>
-                <p class="mb-2"><strong>Activities:</strong>
-                    <ul class="list-disc list-inside ml-4 space-y-1">
-                        <li>05:00 - Game Drive (Get Your Guide)</li>
-                        <li>13:00 - Go Karting Marloth Park</li>
-                    </ul>
-                </p>
-                <img src="https://source.unsplash.com/800x450/?game-drive,marloth-park" alt="Game Drive" class="w-full h-auto rounded-lg mt-4 shadow-md">
-          </div>
-          <div class="itinerary-day-card border-red-400">
-            <h4 class="font-semibold text-xl text-red-800 mb-2">Day 5: Home Time</h4>
-                <p><strong>Route:</strong> From 1274 Rietbok Ave, Marloth Park ➡️ Octave Complex, Midrand</p>
-                <p><strong>Highlights:</strong> Head home with all the incredible memories of your Mpumalanga adventure! This is your return journey.</p>
-                <img src="https://source.unsplash.com/800x450/?roadtrip-sunset,south-africa" alt="Sunset Roadtrip" class="w-full h-auto rounded-lg mt-4 shadow-md">
-          </div>
-        </div>
-      </div>
-
-      <div id="budget" class="tab-content p-6 md:p-8 hidden">
-        <h3 class="text-2xl md:text-3xl font-bold text-green-700 mb-6 title-font">Budget & Travel Logistics 💰</h3>
-        <ul class="text-lg text-gray-700 space-y-3 content-font">
-          <li class="flex items-center"><span class="text-green-500 mr-3">⛽</span> Estimated Fuel Cost: <span class="font-semibold">R2268</span></li>
-          <li class="flex items-center"><span class="text-orange-500 mr-3">🚧</span> Estimated Toll Costs: <span class="font-semibold">R300</span></li>
-          <li class="flex items-center"><span class="text-purple-500 mr-3">📊</span> Total Estimated Travel Cost (Fuel + Tolls): <span class="font-semibold">R2568</span></li>
-        </ul>
-        <p class="text-sm text-gray-500 mt-8 content-font">
-          <strong>Important Disclaimer:</strong> All distances (km), estimated travel times (ETA), and mentions of potential tolls are estimates only. These figures are based on typical conditions and common routes at the time of calculation (June 2025) and are subject to change. Actual travel times will vary significantly based on real-time traffic, road construction, weather conditions, unscheduled stops, and how long you spend at each attraction. Toll prices are dynamic and can change without notice. Toll amounts can also depend on vehicle type. Fuel prices are highly variable. Always use a live navigation app (e.g., Google Maps) closer to and during your trip for the most accurate, real-time information on distances, ETAs, and current toll fees.
-        </p>
-      </div>
-
-      <div id="highlights" class="tab-content p-6 md:p-8 hidden">
-        <h3 class="text-2xl md:text-3xl font-bold text-yellow-700 mb-6 title-font">Quick Trip Highlights ✨</h3>
-        <ul class="text-lg text-gray-700 space-y-3 content-font">
-          <li class="flex items-center"><span class="text-blue-500 mr-3">✅</span> Estimated Fuel & Toll Costs Included</li>
-          <li class="flex items-center"><span class="text-blue-500 mr-3">✅</span> Live Google Maps Links per Route Segment</li>
-          <li class="flex items-center"><span class="text-blue-500 mr-3">✅</span> Safari Nights & Scenic Views</li>
-          <li class="flex items-center"><span class="text-blue-500 mr-3">✅</span> Instagrammable Stops: God's Window, Lisbon Falls, Graskop Gorge</li>
-          <li class="flex items-center"><span class="text-blue-500 mr-3">✅</span> Perfect for Content Creation</li>
-        </ul>
-        <p class="text-md text-gray-600 mt-8 content-font">
-          Everything's mapped out; routes, tolls, stops, even a fuel estimate (because, adulting). It's flexible but focused. No stress. Just good energy, proper memories, and a reminder of how much beauty is out there when we step out of the routine. We're starting early from Midrand, catching the sunrise on the N4, and heading straight into nature's soft life.
-        </p>
-      </div>
-
-        <div id="about" class="tab-content p-6 md:p-8 hidden">
-            <h3 class="text-2xl md:text-3xl font-bold text-orange-700 mb-6 title-font">About This Trip 🚐</h3>
-            <div class="space-y-6 text-gray-700 content-font">
-                <div>
-                    <h4 class="font-semibold text-xl text-orange-800 mb-2 flex items-center"><span class="mr-2">🚗</span> Transport:</h4>
-                    <ul class="list-disc list-inside ml-4 space-y-1">
-                        <li>Comfortable road trip travel across Mpumalanga</li>
-                        <li>Fuel budget and toll gate costs covered</li>
-                        <li>Self-drive experience through scenic routes and hidden gems</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-xl text-orange-800 mb-2 flex items-center"><span class="mr-2">🏡</span> Accommodation:</h4>
-                    <ul class="list-disc list-inside ml-4 space-y-1">
-                        <li>1 Night at Luxury Tented Camp: Leadwood, Hoedspruit</li>
-                        <li>1 Night at Climbing Fig Cottage</li>
-                        <li>2 Nights at A-Frame Cabin in Marloth Park</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-xl text-orange-800 mb-2 flex items-center"><span class="mr-2">🎉</span> Activities:</h4>
-                    <ul class="list-disc list-inside ml-4 space-y-1">
-                        <li>Graskop Gorge Lift entrance, zipline & forest walk</li>
-                        <li>Visits to iconic spots: God's Window, Pinnacle Rock, Bourke's Luck Potholes, Lisbon Falls, Blyde River Canyon Boat Cruise</li>
-                        <li>Game Drive experience</li>
-                        <li>Go Karting in Marloth Park</li>
-                    </ul>
-                </div>
-            </div>
+    <!-- Navigation Bar -->
+    <header class="bg-white shadow-sm py-4 px-6 flex justify-between items-center z-20 sticky top-0">
+        <div class="text-2xl font-bold text-gray-900 heading-font-bold tracking-wider">
+            MPUMALANGA <span class="text-blue-600">X</span> ROAD TRIP
         </div>
+        <nav class="hidden md:flex space-x-8">
+            <a href="#" class="text-gray-700 hover:text-blue-600 font-semibold transition-colors">Home</a>
+            <a href="#about-section" class="text-gray-700 hover:text-blue-600 font-semibold transition-colors">About Trip</a>
+            <a href="#itinerary-section" class="text-gray-700 hover:text-blue-600 font-semibold transition-colors">Itinerary</a>
+            <a href="#checkin-section" class="text-gray-700 hover:text-blue-600 font-semibold transition-colors">Check-in</a>
+            <a href="#team-section" class="text-gray-700 hover:text-blue-600 font-semibold transition-colors">Team</a>
+        </nav>
+        <!-- Mobile Menu Icon (Hamburger) -->
+        <button class="md:hidden text-gray-700 focus:outline-none">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </header>
 
-        <div id="team" class="tab-content p-6 md:p-8 hidden">
-            <h3 class="text-2xl md:text-3xl font-bold text-pink-700 mb-6 title-font">Our Awesome Crew & Content Mission 🎥</h3>
-            <div class="space-y-6 text-gray-700 content-font">
-                <p>We're going on a Mpumalanga road trip! This isn't just a getaway, it's a creative adventure! The crew is made up of:</p>
-                <ul class="list-disc list-inside ml-4 space-y-2">
-                    <li><span class="font-semibold">DriveWithTheJitas:</span> Capturing the fun side of road trips and lifestyle car content.</li>
-                    <li><span class="font-semibold">LifeWithPiwe:</span> Our vibrant travel content creator, sharing breathtaking views and must-visit gems.</li>
-                    <li><span class="font-semibold">QMonesha Maramwidze:</span> Our culinary queen, cooking up magic and flavor-packed content along the way.</li>
-                </ul>
-                <p>From ziplining and boat cruises to sunrise game drives and waterfall views, every moment is an opportunity to create, connect, and share something special with our audiences.</p>
-                <p class="font-bold text-lg text-center mt-6">We're hitting the road to create content, make memories, and above all... HAVE FUN!</p>
-                <div class="text-center mt-8">
-                    <p class="text-xl title-font text-blue-600">Let's Have A Great Trip!</p>
-                    <div class="flex justify-center space-x-6 mt-4">
-                        <a href="#" class="text-blue-500 hover:text-blue-700 text-lg font-semibold">@DriveWithTheJitas</a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700 text-lg font-semibold">@LifeWithPiwe</a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700 text-lg font-semibold">@Monesha_Maramwidze</a>
+    <main class="w-full flex-grow flex flex-col items-center py-10 px-4 md:px-8">
+
+        <!-- Hero Section - Welcome -->
+        <section class="w-full max-w-6xl mb-16 section-card p-6 md:p-12 main-content-grid">
+            <div class="flex flex-col justify-center text-center md:text-left">
+                <h1 class="main-heading text-gray-900 mb-6 heading-font-bold animate-fade-in">
+                    WELCOME TO<br> <span class="text-blue-600">MPUMALANGA</span> ROAD TRIP
+                </h1>
+                <p class="text-lg md:text-xl text-gray-700 mb-8 content-font animate-fade-in delay-200">
+                    This isn't just a getaway; it's a creative adventure! From ziplining and boat cruises to sunrise game drives and waterfall views, every moment is an opportunity to create, connect, and share something special with our audiences. We're hitting the road to create content, make memories, and above all... HAVE FUN!
+                </p>
+                <a href="#about-section" class="btn-primary mx-auto md:mx-0 w-max animate-fade-in delay-300">
+                    Discover The Adventure
+                </a>
+            </div>
+            <div class="md:flex justify-center items-center hidden">
+                <img src="https://source.unsplash.com/800x600/?south-africa-safari-roadtrip" alt="Mpumalanga Road Trip" class="w-full h-auto rounded-xl shadow-lg transform hover:scale-102 transition-transform duration-300">
+            </div>
+        </section>
+
+        <!-- About This Trip Section -->
+        <section id="about-section" class="w-full max-w-6xl mb-16 section-card p-6 md:p-12 main-content-grid">
+            <div class="md:flex justify-center items-center order-2 md:order-1">
+                <img src="https://source.unsplash.com/800x600/?mpumalanga-wildlife,safari-vehicle" alt="Safari Experience" class="w-full h-auto rounded-xl shadow-lg transform hover:scale-102 transition-transform duration-300">
+            </div>
+            <div class="flex flex-col justify-center text-center md:text-left order-1 md:order-2">
+                <h2 class="text-4xl text-gray-900 mb-6 heading-font-bold">ABOUT THIS TRIP <span class="text-orange-500">🚐</span></h2>
+                <div class="space-y-6 text-gray-700 content-font">
+                    <div>
+                        <h4 class="font-semibold text-2xl text-orange-800 mb-2 flex items-center justify-center md:justify-start"><span class="mr-3 text-3xl">🚗</span> Transport:</h4>
+                        <ul class="list-disc list-inside ml-4 space-y-1">
+                            <li>Comfortable road trip travel across Mpumalanga</li>
+                            <li>Fuel budget and toll gate costs covered</li>
+                            <li>Self-drive experience through scenic routes and hidden gems</li>
+                        </ul>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Image Gallery Section -->
-        <section class="bg-white p-8 rounded-2xl card-shadow mb-10 fade-in">
-            <h3 class="text-2xl md:text-3xl font-bold text-teal-700 mb-6 title-font">Mpumalanga Moments 📸</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 image-gallery">
-                <div class="gallery-item">
-                    <img src="https://source.unsplash.com/600x400/?bourkes-luck-potholes" alt="Bourke's Luck Potholes" class="w-full h-48 object-cover rounded-lg">
-                    <div class="gallery-item-caption">Bourke's Luck Potholes</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://source.unsplash.com/600x400/?graskop-gorge-lift" alt="Graskop Gorge Lift" class="w-full h-48 object-cover rounded-lg">
-                    <div class="gallery-item-caption">Graskop Gorge Lift</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://source.unsplash.com/600x400/?lisbon-falls-mpumalanga" alt="Lisbon Falls" class="w-full h-48 object-cover rounded-lg">
-                    <div class="gallery-item-caption">Lisbon Falls</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://source.unsplash.com/600x400/?safari-game-drive,africa" alt="Game Drive" class="w-full h-48 object-cover rounded-lg">
-                    <div class="gallery-item-caption">Exciting Game Drives</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://source.unsplash.com/600x400/?panoramic-view-south-africa" alt="God's Window" class="w-full h-48 object-cover rounded-lg">
-                    <div class="gallery-item-caption">God's Window Panorama</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://source.unsplash.com/600x400/?roadtrip-sunrise" alt="Sunrise Drive" class="w-full h-48 object-cover rounded-lg">
-                    <div class="gallery-item-caption">Sunrise Drives</div>
+                    <div>
+                        <h4 class="font-semibold text-2xl text-orange-800 mb-2 flex items-center justify-center md:justify-start"><span class="mr-3 text-3xl">🏡</span> Accommodation:</h4>
+                        <ul class="list-disc list-inside ml-4 space-y-1">
+                            <li>1 Night at Luxury Tented Camp: Leadwood, Hoedspruit</li>
+                            <li>1 Night at Climbing Fig Cottage</li>
+                            <li>2 Nights at A-Frame Cabin in Marloth Park</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-2xl text-orange-800 mb-2 flex items-center justify-center md:justify-start"><span class="mr-3 text-3xl">🎉</span> Activities:</h4>
+                        <ul class="list-disc list-inside ml-4 space-y-1">
+                            <li>Graskop Gorge Lift entrance, zipline & forest walk</li>
+                            <li>Visits to iconic spots: God's Window, Pinnacle Rock, Bourke's Luck Potholes, Lisbon Falls, Blyde River Canyon Boat Cruise</li>
+                            <li>Game Drive experience, Go Karting in Marloth Park</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-    <section class="text-center p-8 bg-blue-700 text-white rounded-2xl card-shadow mt-8 fade-in">
-      <p class="text-2xl mb-3 title-font leading-relaxed">"Thank you for your collaborative efforts! Let's make this trip one to remember."</p>
-      <p class="text-xl font-semibold mb-4">And a huge thank you to our Lord and Saviour for making this come together. 🙏</p>
-      <p class="text-2xl font-bold title-font">Safe Travels & Blessings!</p>
-    </section>
-  </main>
+        <!-- Check-in Booth Section -->
+        <section id="checkin-section" class="w-full max-w-4xl mb-16 section-card p-6 md:p-12 text-center fade-in">
+            <h2 class="text-4xl text-gray-900 mb-8 heading-font-bold">YOUR CHECK-IN BOOTH <span class="ml-2 text-purple-600">🎟️</span></h2>
+            <p class="text-lg text-gray-700 mb-8 content-font">Choose your name below to get your personalized boarding pass:</p>
+            <select id="passenger" class="mt-4 p-4 w-full md:w-3/4 lg:w-1/2 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-200 text-gray-700 text-xl shadow-inner">
+                <option value="">-- Select Passenger --</option>
+                <option value="Katlego Pooe">Katlego Pooe</option>
+                <option value="Monesha Maramwidze">Monesha Maramwidze</option>
+                <option value="Sbanesihle Motlomelo">Sbanesihle Motlomelo</option>
+                <option value="Spiwe Moyo">Spiwe Moyo</option>
+            </select>
+            <button onclick="generateBoardingPass()" class="btn-blue-gradient mt-8 px-10 py-4 text-white font-bold rounded-xl w-full md:w-3/4 lg:w-1/2 shadow-lg flex items-center justify-center text-xl tracking-wide">
+                Check In Now!
+                <svg class="w-7 h-7 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </button>
+            
+            <div id="boardingPass" class="hidden bg-white p-8 rounded-2xl shadow-inner mt-10 fade-in border border-blue-200">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4 heading-font-bold flex items-center justify-center">
+                    BOARDING PASS READY <span class="ml-3 text-yellow-500">✈️</span>
+                </h3>
+                <p id="passName" class="text-2xl my-4 font-extrabold text-blue-700"></p>
+                <button id="downloadBtn" onclick="downloadStyledPass()" class="mt-6 inline-flex items-center btn-primary text-white font-bold px-10 py-4 rounded-xl shadow-lg text-xl tracking-wide">
+                    <svg class="w-7 h-7 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    Download Your Pass
+                </button>
+            </div>
+        </section>
+
+        <!-- Interactive Tabs Section -->
+        <section id="itinerary-section" class="w-full max-w-6xl section-card overflow-hidden mb-16 fade-in">
+            <div class="flex flex-wrap justify-center border-b border-gray-200 bg-gray-50 rounded-t-2xl">
+                <button class="tab-button active" onclick="openTab(event, 'itinerary')">Itinerary</button>
+                <button class="tab-button" onclick="openTab(event, 'budget')">Budget</button>
+                <button class="tab-button" onclick="openTab(event, 'highlights')">Highlights</button>
+                <button class="tab-button" onclick="openTab(event, 'team')">Our Team</button>
+            </div>
+
+            <div id="itinerary" class="tab-content p-6 md:p-8">
+                <h3 class="text-3xl md:text-4xl font-bold text-blue-700 mb-8 heading-font-bold text-center">Your Day-by-Day Adventure 🗺️</h3>
+                <div class="space-y-8 text-gray-700 content-font">
+                    <div class="itinerary-day-card border-blue-400">
+                        <h4 class="font-semibold text-xl md:text-2xl text-blue-800 mb-3">Day 1: 16 Jul - 17 Jul: Departure + Blyde Canyon Cruise + Leadwood Tented Camp</h4>
+                        <p class="mb-2"><strong>Accommodation:</strong> Luxury Tented Camp: Leadwood, Hoedspruit</p>
+                        <p class="mb-2"><strong>Meals:</strong> Breakfast Included</p>
+                        <p class="mb-3"><strong>Activities:</strong>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li>05:30 for 06:00 - Leave Midrand to Blyde Canyon (5h 50m Drive)</li>
+                                <li>13:00 - Blyde River Canyon Boat Cruise (1h 30m Cruise)</li>
+                            </ul>
+                        </p>
+                        <img src="https://source.unsplash.com/800x450/?blyde-river-canyon-boat-cruise,hoedspruit-tented-camp" alt="Blyde River Canyon" class="w-full h-auto rounded-lg mt-4 shadow-md">
+                    </div>
+                    <div class="itinerary-day-card border-green-400">
+                        <h4 class="font-semibold text-xl md:text-2xl text-green-800 mb-3">Day 2: 17 Jul - 18 Jul: Panorama Route Exploration + Climbing Fig Cottage / Da Gama Hazyview</h4>
+                        <p class="mb-2"><strong>Accommodation:</strong> Climbing Fig Cottage, Mbombela / Da Gama, Hazyview</p>
+                        <p class="mb-2"><strong>Meals:</strong> All Included</p>
+                        <p class="mb-3"><strong>Activities:</strong>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li>12:00 - Bourke's Luck Potholes</li>
+                                <li>13:00 - Lisbon Falls</li>
+                                <li>14:00 - God's Window</li>
+                                <li>15:00 - Graskop Gorge Lift</li>
+                                <li>17:00 - Check in accommodation Da Gama, Hazyview</li>
+                            </ul>
+                        </p>
+                        <img src="https://source.unsplash.com/800x450/?gods-window,lisbon-falls-mpumalanga" alt="Panorama Route Views" class="w-full h-auto rounded-lg mt-4 shadow-md">
+                    </div>
+                    <div class="itinerary-day-card border-purple-400">
+                        <h4 class="font-semibold text-xl md:text-2xl text-purple-800 mb-3">Day 3: 18 Jul - 19 Jul: Quad Biking + A-Frame Cabin in Marloth Park</h4>
+                        <p class="mb-2"><strong>Accommodation:</strong> A-Frame Cabin in Marloth Park</p>
+                        <p class="mb-2"><strong>Meals:</strong> All Included</p>
+                        <p class="mb-3"><strong>Activities:</strong>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li>13:00 - Quad Biking Extreme Adventure Camp Hazyview</li>
+                                <li>15:00 - Check in A-Frame Cabin in Marloth Park</li>
+                            </ul>
+                        </p>
+                        <img src="https://source.unsplash.com/800x450/?quad-biking,marloth-park-cabin" alt="Quad Biking" class="w-full h-auto rounded-lg mt-4 shadow-md">
+                    </div>
+                    <div class="itinerary-day-card border-yellow-400">
+                        <h4 class="font-semibold text-xl md:text-2xl text-yellow-800 mb-3">Day 4: 19 Jul - 20 Jul: Sunrise Game Drive + Go Karting Marloth Park</h4>
+                        <p class="mb-2"><strong>Accommodation:</strong> A-Frame Cabin in Marloth Park</p>
+                        <p class="mb-2"><strong>Meals:</strong> All Included</p>
+                        <p class="mb-3"><strong>Activities:</strong>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li>05:00 - Game Drive (Get Your Guide)</li>
+                                <li>13:00 - Go Karting Marloth Park</li>
+                            </ul>
+                        </p>
+                        <img src="https://source.unsplash.com/800x450/?game-drive,marloth-park-gokart" alt="Game Drive" class="w-full h-auto rounded-lg mt-4 shadow-md">
+                    </div>
+                    <div class="itinerary-day-card border-red-400">
+                        <h4 class="font-semibold text-xl md:text-2xl text-red-800 mb-3">Day 5: Home Time</h4>
+                        <p class="mb-2"><strong>Route:</strong> From 1274 Rietbok Ave, Marloth Park ➡️ Octave Complex, Midrand</p>
+                        <p><strong>Highlights:</strong> Head home with all the incredible memories of your Mpumalanga adventure! This is your return journey.</p>
+                        <img src="https://source.unsplash.com/800x450/?roadtrip-sunset,south-africa" alt="Sunset Roadtrip" class="w-full h-auto rounded-lg mt-4 shadow-md">
+                    </div>
+                </div>
+            </div>
+
+            <div id="budget" class="tab-content p-6 md:p-8 hidden">
+                <h3 class="text-3xl md:text-4xl font-bold text-green-700 mb-6 heading-font-bold text-center">Budget & Travel Logistics 💰</h3>
+                <ul class="text-lg text-gray-700 space-y-3 content-font">
+                    <li class="flex items-center"><span class="text-green-500 mr-3">⛽</span> Estimated Fuel Cost: <span class="font-semibold">R2268</span></li>
+                    <li class="flex items-center"><span class="text-orange-500 mr-3">🚧</span> Estimated Toll Costs: <span class="font-semibold">R300</span></li>
+                    <li class="flex items-center"><span class="text-purple-500 mr-3">📊</span> Total Estimated Travel Cost (Fuel + Tolls): <span class="font-semibold">R2568</span></li>
+                </ul>
+                <p class="text-sm text-gray-500 mt-8 content-font">
+                    <strong>Important Disclaimer:</strong> All distances (km), estimated travel times (ETA), and mentions of potential tolls are estimates only. These figures are based on typical conditions and common routes at the time of calculation (June 2025) and are subject to change. Actual travel times will vary significantly based on real-time traffic, road construction, weather conditions, unscheduled stops, and how long you spend at each attraction. Toll prices are dynamic and can change without notice. Toll amounts can also depend on vehicle type. Fuel prices are highly variable. Always use a live navigation app (e.g., Google Maps) closer to and during your trip for the most accurate, real-time information on distances, ETAs, and current toll fees.
+                </p>
+            </div>
+
+            <div id="highlights" class="tab-content p-6 md:p-8 hidden">
+                <h3 class="text-3xl md:text-4xl font-bold text-yellow-700 mb-6 heading-font-bold text-center">Quick Trip Highlights ✨</h3>
+                <ul class="text-lg text-gray-700 space-y-3 content-font">
+                    <li class="flex items-center"><span class="text-blue-500 mr-3">✅</span> Estimated Fuel & Toll Costs Included</li>
+                    <li class="flex items-center"><span class="text-blue-500 mr-3">✅</span> Live Google Maps Links per Route Segment</li>
+                    <li class="flex items-center"><span class="text-blue-500 mr-3">✅</span> Safari Nights & Scenic Views</li>
+                    <li class="flex items-center"><span class="text-blue-500 mr-3">✅</span> Instagrammable Stops: God's Window, Lisbon Falls, Graskop Gorge</li>
+                    <li class="flex items-center"><span class="text-blue-500 mr-3">✅</span> Perfect for Content Creation</li>
+                </ul>
+                <p class="text-md text-gray-600 mt-8 content-font">
+                    Everything's mapped out; routes, tolls, stops, even a fuel estimate (because, adulting). It's flexible but focused. No stress. Just good energy, proper memories, and a reminder of how much beauty is out there when we step out of the routine. We're starting early from Midrand, catching the sunrise on the N4, and heading straight into nature's soft life.
+                </p>
+            </div>
+
+            <div id="team" class="tab-content p-6 md:p-8 hidden">
+                <h3 class="text-3xl md:text-4xl font-bold text-pink-700 mb-6 heading-font-bold text-center">Our Awesome Crew & Content Mission 🎥</h3>
+                <div class="space-y-6 text-gray-700 content-font">
+                    <p>We're going on a Mpumalanga road trip! This isn't just a getaway, it's a creative adventure! The crew is made up of:</p>
+                    <ul class="list-disc list-inside ml-4 space-y-2">
+                        <li><span class="font-semibold">Katlego Pooe:</span> Capturing the fun side of road trips and lifestyle car content via <a href="#" class="text-blue-500 hover:text-blue-700">@DriveWithTheJitas</a>.</li>
+                        <li><span class="font-semibold">Spiwe Moyo:</span> Our vibrant travel content creator, sharing breathtaking views and must-visit gems via <a href="#" class="text-blue-500 hover:text-blue-700">@LifeWithPiwe</a>.</li>
+                        <li><span class="font-semibold">Monesha Maramwidze:</span> Our culinary queen, cooking up magic and flavor-packed content along the way via <a href="#" class="text-blue-500 hover:text-blue-700">@Monesha_Maramwidze</a>.</li>
+                        <li><span class="font-semibold">Sbanesihle Motlomelo:</span> The fantastic fourth member, ensuring all moments are captured and making memories!</li>
+                    </ul>
+                    <p>From ziplining and boat cruises to sunrise game drives and waterfall views, every moment is an opportunity to create, connect, and share something special with our audiences.</p>
+                    <p class="font-bold text-xl text-center mt-6">We're hitting the road to create content, make memories, and above all... HAVE FUN!</p>
+                    <div class="text-center mt-8">
+                        <p class="text-2xl heading-font-bold text-blue-600">Let's Have A Great Trip!</p>
+                        <!-- Social links are now integrated into the list items -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery Section -->
+        <section class="w-full max-w-6xl section-card mb-16 fade-in">
+            <h3 class="text-3xl md:text-4xl font-bold text-teal-700 mb-8 heading-font-bold text-center">Mpumalanga Moments 📸</h3>
+            <div class="image-collage">
+                <div class="relative">
+                    <img src="https://source.unsplash.com/600x400/?bourkes-luck-potholes" alt="Bourke's Luck Potholes" class="rounded-lg shadow-md">
+                    <span class="gallery-item-caption">Bourke's Luck Potholes</span>
+                </div>
+                <div class="relative">
+                    <img src="https://source.unsplash.com/600x400/?graskop-gorge-lift" alt="Graskop Gorge Lift" class="rounded-lg shadow-md">
+                    <span class="gallery-item-caption">Graskop Gorge Lift</span>
+                </div>
+                <div class="relative">
+                    <img src="https://source.unsplash.com/600x400/?lisbon-falls-mpumalanga" alt="Lisbon Falls" class="rounded-lg shadow-md">
+                    <span class="gallery-item-caption">Lisbon Falls</span>
+                </div>
+                <div class="relative">
+                    <img src="https://source.unsplash.com/600x400/?safari-game-drive,africa" alt="Game Drive" class="rounded-lg shadow-md">
+                    <span class="gallery-item-caption">Exciting Game Drives</span>
+                </div>
+                <div class="relative">
+                    <img src="https://source.unsplash.com/600x400/?panoramic-view-south-africa" alt="God's Window" class="rounded-lg shadow-md">
+                    <span class="gallery-item-caption">God's Window Panorama</span>
+                </div>
+                <div class="relative">
+                    <img src="https://source.unsplash.com/600x400/?roadtrip-sunrise" alt="Sunrise Drive" class="rounded-lg shadow-md">
+                    <span class="gallery-item-caption">Sunrise Drives</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Thank You Message -->
+        <section class="w-full max-w-4xl text-center p-8 bg-blue-700 text-white rounded-2xl card-shadow mt-8 fade-in">
+            <p class="text-2xl md:text-3xl mb-3 title-font leading-relaxed">"Thank you for your collaborative efforts! Let's make this trip one to remember."</p>
+            <p class="text-xl md:text-2xl font-semibold mb-4">And a huge thank you to our Lord and Saviour for making this come together. 🙏</p>
+            <p class="text-3xl md:text-4xl font-bold heading-font-bold">SAFE TRAVELS & BLESSINGS!</p>
+        </section>
+    </main>
 
   <script>
+    // Unique seat assignments for each passenger
+    const passengerSeats = {
+        "Katlego Pooe": "3A",
+        "Monesha Maramwidze": "3B",
+        "Sbanesihle Motlomelo": "3C",
+        "Spiwe Moyo": "3D"
+    };
+
     function generateBoardingPass() {
       const name = document.getElementById('passenger').value;
       if (!name) {
-        alert("Please select a name to generate the boarding pass.");
+        // Using a custom message box instead of alert() for better UX
+        showMessage("Please select a name to generate the boarding pass.", "error");
         return;
       }
       document.getElementById('passName').innerText = name;
@@ -398,186 +409,210 @@
 
     async function downloadStyledPass() {
       const name = document.getElementById('passenger').value;
+      const seat = passengerSeats[name] || "N/A"; // Get unique seat
+
       const jsPDF = window.jspdf.jsPDF;
       
-      // Boarding pass dimensions (in mm) - Adjusted slightly for aesthetic padding
-      const docWidth = 160;
-      const docHeight = 75;
+      // Boarding pass dimensions (in mm)
+      const docWidth = 180; // Slightly wider for better spacing
+      const docHeight = 85; // Slightly taller
       const doc = new jsPDF({ orientation: 'landscape', unit: 'mm', format: [docWidth, docHeight] });
 
-      // --- Styling elements based on the provided PDF and new aesthetic ---
+      // --- Styling elements for a cooler look ---
 
       // Background color (light grey from the PDF, slightly warmer for aesthetic)
-      doc.setFillColor(248, 248, 248); 
+      doc.setFillColor(250, 250, 250); 
       doc.rect(0, 0, docWidth, docHeight, 'F');
 
-      // Border around the pass
-      doc.setDrawColor(180, 180, 180); // Medium grey border
-      doc.setLineWidth(0.5);
-      doc.rect(2, 2, docWidth - 4, docHeight - 4, 'S'); // Inner border
+      // Outer border (thin, dark grey)
+      doc.setDrawColor(50, 50, 50); 
+      doc.setLineWidth(0.3);
+      doc.rect(3, 3, docWidth - 6, docHeight - 6, 'S'); 
 
-      // --- Text Content ---
-
-      // BOARDING PASS Title
+      // --- Main Titles ---
       doc.setFont("helvetica", "bold");
-      doc.setFontSize(14); 
-      doc.setTextColor(50, 50, 50); // Dark grey text
-      doc.text("BOARDING PASS", 6, 10); 
+      doc.setTextColor(20, 20, 20);
 
-      // ROAD TRIP Title (large, centered at top)
-      doc.setFontSize(18);
-      doc.setTextColor(70, 70, 70); 
-      doc.text("ROAD TRIP", docWidth / 2, 10, { align: 'center' }); 
+      // "ROAD TRIP" on the left
+      doc.setFontSize(22);
+      doc.text("ROAD TRIP", 10, 15); 
+
+      // "BOARDING PASS" on the right, centered
+      doc.setFontSize(16);
+      doc.text("BOARDING PASS", docWidth - 10, 15, { align: 'right' }); 
 
       // Horizontal line after titles
-      doc.setDrawColor(100, 100, 100);
-      doc.setLineWidth(0.2);
-      doc.line(5, 16, docWidth - 5, 16); 
-
-      // Passenger details - Column 1
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(7); 
-      doc.setTextColor(100, 100, 100); 
-
-      doc.text("PASSENGER:", 6, 22);
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(10);
-      doc.setTextColor(0, 0, 0); 
-      doc.text(name.toUpperCase(), 6, 26);
-
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(7);
-      doc.setTextColor(100, 100, 100);
-      doc.text("FROM:", 6, 32);
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(10);
-      doc.setTextColor(0, 0, 0);
-      doc.text("MIDRAND", 6, 36);
-
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(7);
-      doc.setTextColor(100, 100, 100);
-      doc.text("TO:", 6, 42);
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(10);
-      doc.setTextColor(0, 0, 0);
-      doc.text("MPUMALANGA", 6, 46);
-
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(7);
-      doc.setTextColor(100, 100, 100);
-      doc.text("CAR:", 6, 52);
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(10);
-      doc.setTextColor(0, 0, 0);
-      doc.text("HAVALA H6", 6, 56);
-
-      // Passenger details - Column 2
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(7);
-      doc.setTextColor(100, 100, 100);
-      const col2X = 55; 
-
-      doc.text("SEAT", col2X, 22);
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(10);
-      doc.setTextColor(0, 0, 0);
-      doc.text("1 D", col2X, 26);
-
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(7);
-      doc.setTextColor(100, 100, 100);
-      doc.text("DATE :", col2X, 32);
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(10);
-      doc.setTextColor(0, 0, 0);
-      doc.text("2025/07/16", col2X, 36);
-
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(7);
-      doc.setTextColor(100, 100, 100);
-      doc.text("TIME:", col2X, 42);
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(10);
-      doc.setTextColor(0, 0, 0);
-      doc.text("05:00", col2X, 46);
-
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(7);
-      doc.setTextColor(100, 100, 100);
-      doc.text("GATE:", col2X, 52);
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(10);
-      doc.setTextColor(0, 0, 0);
-      doc.text("01", col2X, 56);
-
-      // FIRST CLASS
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(10);
-      doc.setTextColor(0, 0, 0);
-      doc.text("FIRST CLASS", 6, 62);
-
-      // --- Right Side - Perforated Section Look ---
-      const dottedLineX = docWidth * 0.65; 
       doc.setDrawColor(150, 150, 150);
-      doc.setLineDash([1, 1], 0); 
-      doc.line(dottedLineX, 5, dottedLineX, docHeight - 5); 
+      doc.setLineWidth(0.2);
+      doc.line(10, 22, docWidth - 10, 22); 
 
-      // Content for the right side (repeated essential info)
-      doc.setLineDash(0, 0); 
+      // --- Main Content Columns ---
       doc.setFont("helvetica", "normal");
-      doc.setFontSize(7);
-      doc.setTextColor(100, 100, 100);
+      doc.setFontSize(8); 
+      doc.setTextColor(80, 80, 80); 
 
-      const rightX = dottedLineX + 5; 
-
-      doc.text("PASSENGER:", rightX, 22);
+      // Left Column (Passenger Details)
+      const col1X = 10;
+      doc.text("PASSENGER:", col1X, 30);
       doc.setFont("helvetica", "bold");
-      doc.setFontSize(10);
+      doc.setFontSize(12);
       doc.setTextColor(0, 0, 0); 
-      doc.text(name.toUpperCase(), rightX, 26);
+      doc.text(name.toUpperCase(), col1X, 35);
 
       doc.setFont("helvetica", "normal");
-      doc.setFontSize(7);
-      doc.setTextColor(100, 100, 100);
-      doc.text("FROM:", rightX, 32);
+      doc.setFontSize(8);
+      doc.setTextColor(80, 80, 80);
+      doc.text("FROM:", col1X, 45);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(12);
+      doc.setTextColor(0, 0, 0);
+      doc.text("MIDRAND", col1X, 50);
+
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8);
+      doc.setTextColor(80, 80, 80);
+      doc.text("TO:", col1X, 60);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(12);
+      doc.setTextColor(0, 0, 0);
+      doc.text("MPUMALANGA", col1X, 65);
+
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8);
+      doc.setTextColor(80, 80, 80);
+      doc.text("CAR:", col1X, 75);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(12);
+      doc.setTextColor(0, 0, 0);
+      doc.text("HAVALA H6", col1X, 80);
+
+      // Middle Column (Flight Details)
+      const col2X = 70; 
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8);
+      doc.setTextColor(80, 80, 80);
+
+      doc.text("SEAT:", col2X, 30);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(12);
+      doc.setTextColor(0, 0, 0);
+      doc.text(seat, col2X, 35); // Dynamic Seat
+
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8);
+      doc.setTextColor(80, 80, 80);
+      doc.text("DATE:", col2X, 45);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(12);
+      doc.setTextColor(0, 0, 0);
+      doc.text("2025/07/16", col2X, 50);
+
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8);
+      doc.setTextColor(80, 80, 80);
+      doc.text("TIME:", col2X, 60);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(12);
+      doc.setTextColor(0, 0, 0);
+      doc.text("05:00", col2X, 65);
+
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8);
+      doc.setTextColor(80, 80, 80);
+      doc.text("GATE:", col2X, 75);
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(12);
+      doc.setTextColor(0, 0, 0);
+      doc.text("01", col2X, 80);
+
+      // --- Right Side - Tear-off Section (Barcode & Summary) ---
+      const tearOffX = docWidth * 0.65; // Position for the dotted line
+      doc.setDrawColor(180, 180, 180);
+      doc.setLineDash([1, 1], 0); // Dotted line style
+      doc.line(tearOffX, 3, tearOffX, docHeight - 3); // Vertical dotted line
+
+      // Content for the tear-off section
+      const tearOffContentX = tearOffX + 5;
+      doc.setLineDash(0, 0); // Reset to solid line for text
+
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8);
+      doc.setTextColor(80, 80, 80);
+
+      doc.text("PASSENGER:", tearOffContentX, 30);
       doc.setFont("helvetica", "bold");
       doc.setFontSize(10);
       doc.setTextColor(0, 0, 0);
-      doc.text("MIDRAND", rightX, 36);
+      doc.text(name.toUpperCase(), tearOffContentX, 35);
 
       doc.setFont("helvetica", "normal");
-      doc.setFontSize(7);
-      doc.setTextColor(100, 100, 100);
-      doc.text("TO:", rightX, 42);
+      doc.setFontSize(8);
+      doc.setTextColor(80, 80, 80);
+      doc.text("FROM:", tearOffContentX, 45);
       doc.setFont("helvetica", "bold");
       doc.setFontSize(10);
       doc.setTextColor(0, 0, 0);
-      doc.text("MPUMALANGA", rightX, 46);
+      doc.text("MIDRAND", tearOffContentX, 50);
 
-      // Seat (on right side)
       doc.setFont("helvetica", "normal");
-      doc.setFontSize(7);
-      doc.setTextColor(100, 100, 100);
-      doc.text("SEAT", rightX, 52);
+      doc.setFontSize(8);
+      doc.setTextColor(80, 80, 80);
+      doc.text("TO:", tearOffContentX, 60);
       doc.setFont("helvetica", "bold");
       doc.setFontSize(10);
       doc.setTextColor(0, 0, 0);
-      doc.text("1 D", rightX, 56);
+      doc.text("MPUMALANGA", tearOffContentX, 65);
 
-      // Date (on right side)
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(7);
-      doc.setTextColor(100, 100, 100);
-      doc.text("DATE:", rightX, 62);
       doc.setFont("helvetica", "bold");
       doc.setFontSize(10);
       doc.setTextColor(0, 0, 0);
-      doc.text("2025/07/16", rightX, 66);
+      doc.text("SEAT: " + seat, tearOffContentX, 75); // Seat on tear-off
+      doc.text("DATE: 2025/07/16", tearOffContentX, 80); // Date on tear-off
 
+      // Barcode placeholder (simple rectangle)
+      doc.setDrawColor(0, 0, 0);
+      doc.setFillColor(0, 0, 0);
+      doc.rect(tearOffX + 5, 5, 5, 15, 'F'); // Dark bar
+      doc.setFillColor(200, 200, 200);
+      doc.rect(tearOffX + 11, 5, 5, 15, 'F'); // Light bar
+      doc.setFillColor(0, 0, 0);
+      doc.rect(tearOffX + 17, 5, 5, 15, 'F'); // Dark bar
+      doc.setFillColor(200, 200, 200);
+      doc.rect(tearOffX + 23, 5, 5, 15, 'F'); // Light bar
+
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(6);
+      doc.setTextColor(100, 100, 100);
+      doc.text("FLIGHT-CODE-TRIP-7016", tearOffX + 17, 24, { align: 'center' }); // Barcode text
 
       doc.save(`Boarding_Pass_${name.replace(/\s/g, '_')}.pdf`);
     }
+
+    // Custom message box function (instead of alert)
+    function showMessage(message, type = "info") {
+        const msgBox = document.createElement('div');
+        msgBox.className = `fixed bottom-5 left-1/2 -translate-x-1/2 p-4 rounded-lg shadow-xl text-white font-semibold z-50 text-center transition-all duration-300 ease-out transform scale-0 opacity-0`;
+        if (type === "error") {
+            msgBox.classList.add('bg-red-500');
+        } else {
+            msgBox.classList.add('bg-blue-500');
+        }
+        msgBox.innerText = message;
+        document.body.appendChild(msgBox);
+
+        // Animate in
+        setTimeout(() => {
+            msgBox.style.transform = 'translate(-50%, 0) scale(1)';
+            msgBox.style.opacity = '1';
+        }, 10); // Small delay to allow CSS transition
+
+        // Animate out and remove
+        setTimeout(() => {
+            msgBox.style.transform = 'translate(-50%, 20px) scale(0.9)';
+            msgBox.style.opacity = '0';
+            msgBox.addEventListener('transitionend', () => msgBox.remove());
+        }, 3000); // Display for 3 seconds
+    }
   </script>
 </body>
 </html>
