@@ -109,10 +109,10 @@
         </div>
         <nav class="hidden md:flex space-x-8">
             <a href="#" class="text-gray-700 hover:text-blue-600 font-semibold transition-colors">Home</a>
-            <a href="#about-section" class="text-gray-700 hover:text-blue-600 font-semibold transition-colors">About Trip</a>
+            <a href="#about-section-container" class="text-gray-700 hover:text-blue-600 font-semibold transition-colors">About Trip</a>
             <a href="#itinerary-section" class="text-gray-700 hover:text-blue-600 font-semibold transition-colors">Itinerary</a>
             <a href="#checkin-section" class="text-gray-700 hover:text-blue-600 font-semibold transition-colors">Check-in</a>
-            <a href="#team-section" class="text-gray-700 hover:text-blue-600 font-semibold transition-colors">Team</a>
+            <a href="#team-section-container" class="text-gray-700 hover:text-blue-600 font-semibold transition-colors">Team</a>
         </nav>
         <!-- Mobile Menu Icon (Hamburger) -->
         <button class="md:hidden text-gray-700 focus:outline-none">
@@ -131,52 +131,18 @@
                 <p class="text-lg md:text-xl text-gray-700 mb-8 content-font animate-fade-in delay-200">
                     This isn't just a getaway; it's a creative adventure! From ziplining and boat cruises to sunrise game drives and waterfall views, every moment is an opportunity to create, connect, and share something special with our audiences. We're hitting the road to create content, make memories, and above all... HAVE FUN!
                 </p>
-                <a href="#about-section" class="btn-primary mx-auto md:mx-0 w-max animate-fade-in delay-300">
+                <a href="#about-section-container" class="btn-primary mx-auto md:mx-0 w-max animate-fade-in delay-300">
                     Discover The Adventure
                 </a>
             </div>
             <div class="md:flex justify-center items-center hidden">
-                <!-- RELIABLE IMAGE: Update this src to your image in the /images folder -->
-                <img src="./images/mpumalanga-landscape.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x600/E0E7FF/3B82F6?text=MPUMALANGA+LANDSCAPE';" alt="Mpumalanga Road Trip" class="w-full h-auto rounded-xl shadow-lg transform hover:scale-102 transition-transform duration-300">
+                <!-- REAL IMAGE: Mpumalanga Landscape (Hero) -->
+                <img src="./images/image_675d56.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x600/E0E7FF/3B82F6?text=MPUMALANGA+LANDSCAPE';" alt="Mpumalanga Road Trip Landscape" class="w-full h-auto rounded-xl shadow-lg transform hover:scale-102 transition-transform duration-300">
             </div>
         </section>
 
-        <!-- About This Trip Section -->
-        <section id="about-section" class="w-full max-w-6xl mb-16 section-card p-6 md:p-12 main-content-grid">
-            <div class="md:flex justify-center items-center order-2 md:order-1">
-                <!-- RELIABLE IMAGE: Update this src to your image in the /images folder -->
-                <img src="./images/safari-experience.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x600/C8E6C9/4CAF50?text=SAFARI+EXPERIENCE';" alt="Safari Experience" class="w-full h-auto rounded-xl shadow-lg transform hover:scale-102 transition-transform duration-300">
-            </div>
-            <div class="flex flex-col justify-center text-center md:text-left order-1 md:order-2">
-                <h2 class="text-4xl text-gray-900 mb-6 heading-font-bold">ABOUT THIS TRIP <span class="text-orange-500">🚐</span></h2>
-                <div class="space-y-6 text-gray-700 content-font">
-                    <div>
-                        <h4 class="font-semibold text-2xl text-orange-800 mb-2 flex items-center justify-center md:justify-start"><span class="mr-3 text-3xl">🚗</span> Transport:</h4>
-                        <ul class="list-disc list-inside ml-4 space-y-1">
-                            <li>Comfortable road trip travel across Mpumalanga</li>
-                            <li>Fuel budget and toll gate costs covered</li>
-                            <li>Self-drive experience through scenic routes and hidden gems</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold text-2xl text-orange-800 mb-2 flex items-center justify-center md:justify-start"><span class="mr-3 text-3xl">🏡</span> Accommodation:</h4>
-                        <ul class="list-disc list-inside ml-4 space-y-1">
-                            <li>1 Night at Luxury Tented Camp: Leadwood, Hoedspruit</li>
-                            <li>1 Night at Aha Nkambeni Safari Camp</li>
-                            <li>2 Nights at A-Frame Cabin in Marloth Park</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold text-2xl text-orange-800 mb-2 flex items-center justify-center md:justify-start"><span class="mr-3 text-3xl">🎉</span> Activities:</h4>
-                        <ul class="list-disc list-inside ml-4 space-y-1">
-                            <li>Graskop Gorge Lift entrance, zipline & forest walk</li>
-                            <li>Visits to iconic spots: God's Window, Pinnacle Rock, Bourke's Luck Potholes, Lisbon Falls, Blyde River Canyon Boat Cruise</li>
-                            <li>Game Drive experience, Go Karting in Marloth Park</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- NOTE: The old 'About This Trip' and 'Team' sections as standalone sections are now removed from here,
+             as their content has been integrated into the tabbed interface below. -->
 
         <!-- Check-in Booth Section -->
         <section id="checkin-section" class="w-full max-w-4xl mb-16 section-card p-6 md:p-12 text-center fade-in">
@@ -206,124 +172,153 @@
             </div>
         </section>
 
-        <!-- Interactive Tabs Section -->
-        <section class="w-full max-w-6xl section-card overflow-hidden mb-16 fade-in">
+        <!-- Interactive Tabs Section - All content is now within this section -->
+        <section id="itinerary-section" class="w-full max-w-6xl section-card overflow-hidden mb-16 fade-in">
             <div class="flex flex-wrap justify-center border-b border-gray-200 bg-gray-50 rounded-t-2xl">
-                <button class="tab-button active" onclick="openTab(event, 'itinerary')">Itinerary</button>
-                <button class="tab-button" onclick="openTab(event, 'budget')">Budget</button>
-                <button class="tab-button" onclick="openTab(event, 'highlights')">Highlights</button>
-                <button class="tab-button" onclick="openTab(event, 'team')">Our Team</button>
+                <button class="tab-button active" onclick="openTab(event, 'itinerary-content')">Itinerary</button>
+                <button class="tab-button" onclick="openTab(event, 'budget-content')">Budget</button>
+                <button class="tab-button" onclick="openTab(event, 'highlights-content')">Highlights</button>
+                <button class="tab-button" onclick="openTab(event, 'about-content')">About Trip</button>
+                <button class="tab-button" onclick="openTab(event, 'team-content')">Team</button>
             </div>
 
-            <div id="itinerary" class="tab-content p-6 md:p-8">
-                <h3 class="text-3xl md:text-4xl font-bold text-blue-700 mb-8 heading-font-bold text-center">Your Day-by-Day Adventure 🗺️</h3>
-                <div class="space-y-8 text-gray-700 content-font">
-                    <div class="itinerary-day-card border-blue-400">
-                        <h4 class="font-semibold text-xl md:text-2xl text-blue-800 mb-3">Day 1: 16 Jul - 17 Jul: Departure + Blyde Canyon Cruise + Leadwood Tented Camp</h4>
-                        <p class="mb-2"><strong>Accommodation:</strong> Luxury Tented Camp: Leadwood, Hoedspruit</p>
-                        <p class="mb-2"><strong>Meals:</strong> Breakfast Included</p>
-                        <p class="mb-3"><strong>Activities:</strong>
-                            <ul class="list-disc list-inside ml-4 space-y-1">
-                                <li>05:30 for 06:00 - Leave Midrand to Blyde Canyon (5h 50m Drive)</li>
-                                <li>13:00 - Blyde River Canyon Boat Cruise (1h 30m Cruise)</li>
-                            </ul>
-                        </p>
-                        <!-- RELIABLE IMAGE: Update this src to your image in the /images folder -->
-                        <img src="./images/blyde-river-canyon.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x450/B3E0FF/0056B3?text=Blyde+River+Canyon';" alt="Blyde River Canyon" class="w-full h-auto rounded-lg mt-4 shadow-md">
-                    </div>
-                    <div class="itinerary-day-card border-green-400">
-                        <h4 class="font-semibold text-xl md:text-2xl text-green-800 mb-3">Day 2: 17 Jul - 18 Jul: Panorama Route Exploration + Climbing Fig Cottage / Da Gama Hazyview</h4>
-                        <p class="mb-2"><strong>Accommodation:</strong> Climbing Fig Cottage, Mbombela / Da Gama, Hazyview</p>
-                        <p class="mb-2"><strong>Meals:</strong> All Included</p>
-                        <p class="mb-3"><strong>Activities:</strong>
-                            <ul class="list-disc list-inside ml-4 space-y-1">
-                                <li>12:00 - Bourke's Luck Potholes</li>
-                                <li>13:00 - Lisbon Falls</li>
-                                <li>14:00 - God's Window</li>
-                                <li>15:00 - Graskop Gorge Lift</li>
-                                <li>17:00 - Check in accommodation Da Gama, Hazyview</li>
-                            </ul>
-                        </p>
-                        <!-- RELIABLE IMAGE: Update this src to your image in the /images folder -->
-                        <img src="./images/panorama-route.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x450/CCEBD7/28A745?text=Panorama+Route+Views';" alt="Panorama Route Views" class="w-full h-auto rounded-lg mt-4 shadow-md">
-                    </div>
-                    <div class="itinerary-day-card border-purple-400">
-                        <h4 class="font-semibold text-xl md:text-2xl text-purple-800 mb-3">Day 3: 18 Jul - 19 Jul: Quad Biking + A-Frame Cabin in Marloth Park</h4>
-                        <p class="mb-2"><strong>Accommodation:</strong> A-Frame Cabin in Marloth Park</p>
-                        <p class="mb-2"><strong>Meals:</strong> All Included</p>
-                        <p class="mb-3"><strong>Activities:</strong>
-                            <ul class="list-disc list-inside ml-4 space-y-1">
-                                <li>13:00 - Quad Biking Extreme Adventure Camp Hazyview</li>
-                                <li>15:00 - Check in A-Frame Cabin in Marloth Park</li>
-                            </ul>
-                        </p>
-                        <!-- RELIABLE IMAGE: Update this src to your image in the /images folder -->
-                        <img src="./images/quad-biking.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x450/D2CCEC/6C5CE7?text=Quad+Biking+Adventure';" alt="Quad Biking" class="w-full h-auto rounded-lg mt-4 shadow-md">
-                    </div>
-                    <div class="itinerary-day-card border-yellow-400">
-                        <h4 class="font-semibold text-xl md:text-2xl text-yellow-800 mb-3">Day 4: 19 Jul - 20 Jul: Sunrise Game Drive + Go Karting Marloth Park</h4>
-                        <p class="mb-2"><strong>Accommodation:</strong> A-Frame Cabin in Marloth Park</p>
-                        <p class="mb-2"><strong>Meals:</strong> All Included</p>
-                        <p class="mb-3"><strong>Activities:</strong>
-                            <ul class="list-disc list-inside ml-4 space-y-1">
-                                <li>05:00 - Game Drive (Get Your Guide)</li>
-                                <li>13:00 - Go Karting Marloth Park</li>
-                            </ul>
-                        </p>
-                        <!-- RELIABLE IMAGE: Update this src to your image in the /images folder -->
-                        <img src="./images/game-drive.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x450/FFECB3/FFC107?text=Game+Drive+Marloth+Park';" alt="Game Drive" class="w-full h-auto rounded-lg mt-4 shadow-md">
-                    </div>
-                    <div class="itinerary-day-card border-red-400">
-                        <h4 class="font-semibold text-xl md:text-2xl text-red-800 mb-3">Day 5: Home Time</h4>
-                        <p class="mb-2"><strong>Route:</strong> From 1274 Rietbok Ave, Marloth Park ➡️ Octave Complex, Midrand</p>
-                        <p><strong>Highlights:</strong> Head home with all the incredible memories of your Mpumalanga adventure! This is your return journey.</p>
-                        <!-- RELIABLE IMAGE: Update this src to your image in the /images folder -->
-                        <img src="./images/roadtrip-home.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x450/FFCDD2/F44336?text=Roadtrip+Home';" alt="Sunset Roadtrip" class="w-full h-auto rounded-lg mt-4 shadow-md">
+            <!-- TAB CONTENT WRAPPER -->
+            <div class="p-6 md:p-8">
+                <div id="itinerary-content" class="tab-content">
+                    <h3 class="text-3xl md:text-4xl font-bold text-blue-700 mb-8 heading-font-bold text-center">Your Day-by-Day Adventure 🗺️</h3>
+                    <div class="space-y-8 text-gray-700 content-font">
+                        <div class="itinerary-day-card border-blue-400">
+                            <h4 class="font-semibold text-xl md:text-2xl text-blue-800 mb-3">Day 1: 16 Jul - 17 Jul: Departure + Blyde Canyon Cruise + Leadwood Tented Camp</h4>
+                            <p class="mb-2"><strong>Accommodation:</strong> Luxury Tented Camp: Leadwood, Hoedspruit</p>
+                            <p class="mb-2"><strong>Meals:</strong> Breakfast Included</p>
+                            <p class="mb-3"><strong>Activities:</strong>
+                                <ul class="list-disc list-inside ml-4 space-y-1">
+                                    <li>05:30 for 06:00 - Leave Midrand to Blyde Canyon (5h 50m Drive)</li>
+                                    <li>13:00 - Blyde River Canyon Boat Cruise (1h 30m Cruise)</li>
+                                </ul>
+                            </p>
+                            <img src="./images/image_676120.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x450/B3E0FF/0056B3?text=Blyde+River+Canyon';" alt="Blyde River Canyon" class="w-full h-auto rounded-lg mt-4 shadow-md">
+                        </div>
+                        <div class="itinerary-day-card border-green-400">
+                            <h4 class="font-semibold text-xl md:text-2xl text-green-800 mb-3">Day 2: 17 Jul - 18 Jul: Panorama Route Exploration + Climbing Fig Cottage / Da Gama Hazyview</h4>
+                            <p class="mb-2"><strong>Accommodation:</strong> Climbing Fig Cottage, Mbombela / Da Gama, Hazyview</p>
+                            <p class="mb-2"><strong>Meals:</strong> All Included</p>
+                            <p class="mb-3"><strong>Activities:</strong>
+                                <ul class="list-disc list-inside ml-4 space-y-1">
+                                    <li>12:00 - Bourke's Luck Potholes</li>
+                                    <li>13:00 - Lisbon Falls</li>
+                                    <li>14:00 - God's Window</li>
+                                    <li>15:00 - Graskop Gorge Lift</li>
+                                    <li>17:00 - Check in accommodation Da Gama, Hazyview</li>
+                                </ul>
+                            </p>
+                            <img src="./images/image_675ca2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x450/CCEBD7/28A745?text=Panorama+Route+Views';" alt="Panorama Route Views" class="w-full h-auto rounded-lg mt-4 shadow-md">
+                        </div>
+                        <div class="itinerary-day-card border-purple-400">
+                            <h4 class="font-semibold text-xl md:text-2xl text-purple-800 mb-3">Day 3: 18 Jul - 19 Jul: Quad Biking + A-Frame Cabin in Marloth Park</h4>
+                            <p class="mb-2"><strong>Accommodation:</strong> A-Frame Cabin in Marloth Park</p>
+                            <p class="mb-2"><strong>Meals:</strong> All Included</p>
+                            <p class="mb-3"><strong>Activities:</strong>
+                                <ul class="list-disc list-inside ml-4 space-y-1">
+                                    <li>13:00 - Quad Biking Extreme Adventure Camp Hazyview</li>
+                                    <li>15:00 - Check in A-Frame Cabin in Marloth Park</li>
+                                </ul>
+                            </p>
+                            <img src="./images/image_67595d.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x450/D2CCEC/6C5CE7?text=A-Frame+Cabin';" alt="A-Frame Cabin in Marloth Park" class="w-full h-auto rounded-lg mt-4 shadow-md">
+                        </div>
+                        <div class="itinerary-day-card border-yellow-400">
+                            <h4 class="font-semibold text-xl md:text-2xl text-yellow-800 mb-3">Day 4: 19 Jul - 20 Jul: Sunrise Game Drive + Go Karting Marloth Park</h4>
+                            <p class="mb-2"><strong>Accommodation:</strong> A-Frame Cabin in Marloth Park</p>
+                            <p class="mb-2"><strong>Meals:</strong> All Included</p>
+                            <p class="mb-3"><strong>Activities:</strong>
+                                <ul class="list-disc list-inside ml-4 space-y-1">
+                                    <li>05:00 - Game Drive (Get Your Guide)</li>
+                                    <li>13:00 - Go Karting Marloth Park</li>
+                                </ul>
+                            </p>
+                            <img src="https://placehold.co/800x450/FFECB3/FFC107?text=Game+Drive+Marloth+Park" alt="Game Drive" class="w-full h-auto rounded-lg mt-4 shadow-md">
+                        </div>
+                        <div class="itinerary-day-card border-red-400">
+                            <h4 class="font-semibold text-xl md:text-2xl text-red-800 mb-3">Day 5: Home Time</h4>
+                            <p class="mb-2"><strong>Route:</strong> From 1274 Rietbok Ave, Marloth Park ➡️ Octave Complex, Midrand</p>
+                            <p><strong>Highlights:</strong> Head home with all the incredible memories of your Mpumalanga adventure! This is your return journey.</p>
+                            <img src="https://placehold.co/800x450/FFCDD2/F44336?text=Roadtrip+Home" alt="Sunset Roadtrip" class="w-full h-auto rounded-lg mt-4 shadow-md">
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div id="budget" class="tab-content p-6 md:p-8 hidden">
-                <h3 class="text-3xl md:text-4xl font-bold text-green-700 mb-6 heading-font-bold text-center">Budget & Travel Logistics 💰</h3>
-                <ul class="text-lg text-gray-700 space-y-3 content-font">
-                    <li class="flex items-center"><span class="text-green-500 mr-3">⛽</span> Estimated Fuel Cost: <span class="font-semibold">R2268</span></li>
-                    <li class="flex items-center"><span class="text-orange-500 mr-3">🚧</span> Estimated Toll Costs: <span class="font-semibold">R300</span></li>
-                    <li class="flex items-center"><span class="text-purple-500 mr-3">📊</span> Total Estimated Travel Cost (Fuel + Tolls): <span class="font-semibold">R2568</span></li>
-                </ul>
-                <p class="text-sm text-gray-500 mt-8 content-font">
-                    <strong>Important Disclaimer:</strong> All distances (km), estimated travel times (ETA), and mentions of potential tolls are estimates only. These figures are based on typical conditions and common routes at the time of calculation (June 2025) and are subject to change. Actual travel times will vary significantly based on real-time traffic, road construction, weather conditions, unscheduled stops, and how long you spend at each attraction. Toll prices are dynamic and can change without notice. Toll amounts can also depend on vehicle type. Fuel prices are highly variable. Always use a live navigation app (e.g., Google Maps) closer to and during your trip for the most accurate, real-time information on distances, ETAs, and current toll fees.
-                </p>
-            </div>
-
-            <div id="highlights" class="tab-content p-6 md:p-8 hidden">
-                <h3 class="text-3xl md:text-4xl font-bold text-yellow-700 mb-6 heading-font-bold text-center">Quick Trip Highlights ✨</h3>
-                <ul class="text-lg text-gray-700 space-y-3 content-font">
-                    <li class="flex items-center"><span class="text-blue-500 mr-3">✅</span> Estimated Fuel & Toll Costs Included</li>
-                    <li class="flex items-center"><span class="text-blue-500 mr-3">✅</span> Live Google Maps Links per Route Segment</li>
-                    <li class="flex items-center"><span class="text-blue-500 mr-3">✅</span> Safari Nights & Scenic Views</li>
-                    <li class="flex items-center"><span class="text-blue-500 mr-3">✅</span> Instagrammable Stops: God's Window, Lisbon Falls, Graskop Gorge</li>
-                    <li class="flex items-center"><span class="text-blue-500 mr-3">✅</span> Perfect for Content Creation</li>
-                </ul>
-                <p class="text-md text-gray-600 mt-8 content-font">
-                    Everything's mapped out; routes, tolls, stops, even a fuel estimate (because, adulting). It's flexible but focused. No stress. Just good energy, proper memories, and a reminder of how much beauty is out there when we step out of the routine. We're starting early from Midrand, catching the sunrise on the N4, and heading straight into nature's soft life.
-                </p>
-            </div>
-
-            <div id="team" class="tab-content p-6 md:p-8 hidden">
-                <h3 class="text-3xl md:text-4xl font-bold text-pink-700 mb-6 heading-font-bold text-center">Our Awesome Crew & Content Mission 🎥</h3>
-                <div class="space-y-6 text-gray-700 content-font">
-                    <p>We're going on a Mpumalanga road trip! This isn't just a getaway, it's a creative adventure! The crew is made up of:</p>
-                    <ul class="list-disc list-inside ml-4 space-y-2">
-                        <li><span class="font-semibold">Katlego Pooe:</span> Capturing the fun side of road trips and lifestyle car content via <a href="#" class="text-blue-500 hover:text-blue-700">@DriveWithTheJitas</a>.</li>
-                        <li><span class="font-semibold">Spiwe Moyo:</span> Our vibrant travel content creator, sharing breathtaking views and must-visit gems via <a href="#" class="text-blue-500 hover:text-blue-700">@LifeWithPiwe</a>.</li>
-                        <li><span class="font-semibold">Monesha Maramwidze:</span> Our culinary queen, cooking up magic and flavor-packed content along the way via <a href="#" class="text-blue-500 hover:text-blue-700">@Monesha_Maramwidze</a>.</li>
-                        <li><span class="font-semibold">Sbanesihle Motlomelo:</span> The fantastic fourth member, ensuring all moments are captured and making memories!</li>
+                <div id="budget-content" class="tab-content hidden">
+                    <h3 class="text-3xl md:text-4xl font-bold text-green-700 mb-6 heading-font-bold text-center">Budget & Travel Logistics 💰</h3>
+                    <ul class="text-lg text-gray-700 space-y-3 content-font">
+                        <li class="flex items-center"><span class="text-green-500 mr-3">⛽</span> Estimated Fuel Cost: <span class="font-semibold">R2268</span></li>
+                        <li class="flex items-center"><span class="text-orange-500 mr-3">🚧</span> Estimated Toll Costs: <span class="font-semibold">R300</span></li>
+                        <li class="flex items-center"><span class="text-purple-500 mr-3">📊</span> Total Estimated Travel Cost (Fuel + Tolls): <span class="font-semibold">R2568</span></li>
                     </ul>
-                    <p>From ziplining and boat cruises to sunrise game drives and waterfall views, every moment is an opportunity to create, connect, and share something special with our audiences.</p>
-                    <p class="font-bold text-xl text-center mt-6">We're hitting the road to create content, make memories, and above all... HAVE FUN!</p>
-                    <div class="text-center mt-8">
-                        <p class="text-2xl heading-font-bold text-blue-600">Let's Have A Great Trip!</p>
+                    <p class="text-sm text-gray-500 mt-8 content-font">
+                        <strong>Important Disclaimer:</strong> All distances (km), estimated travel times (ETA), and mentions of potential tolls are estimates only. These figures are based on typical conditions and common routes at the time of calculation (June 2025) and are subject to change. Actual travel times will vary significantly based on real-time traffic, road construction, weather conditions, unscheduled stops, and how long you spend at each attraction. Toll prices are dynamic and can change without notice. Toll amounts can also depend on vehicle type. Fuel prices are highly variable. Always use a live navigation app (e.g., Google Maps) closer to and during your trip for the most accurate, real-time information on distances, ETAs, and current toll fees.
+                    </p>
+                </div>
+
+                <div id="highlights-content" class="tab-content hidden">
+                    <h3 class="text-3xl md:text-4xl font-bold text-yellow-700 mb-6 heading-font-bold text-center">Quick Trip Highlights ✨</h3>
+                    <ul class="text-lg text-gray-700 space-y-3 content-font">
+                        <li class="flex items-center"><span class="text-blue-500 mr-3">✅</span> Estimated Fuel & Toll Costs Included</li>
+                        <li class="flex items-center"><span class="text-blue-500 mr-3">✅</span> Live Google Maps Links per Route Segment</li>
+                        <li class="flex items-center"><span class="text-blue-500 mr-3">✅</span> Safari Nights & Scenic Views</li>
+                        <li class="flex items-center"><span class="text-blue-500 mr-3">✅</span> Instagrammable Stops: God's Window, Lisbon Falls, Graskop Gorge</li>
+                        <li class="flex items-center"><span class="text-blue-500 mr-3">✅</span> Perfect for Content Creation</li>
+                    </ul>
+                    <p class="text-md text-gray-600 mt-8 content-font">
+                        Everything's mapped out; routes, tolls, stops, even a fuel estimate (because, adulting). It's flexible but focused. No stress. Just good energy, proper memories, and a reminder of how much beauty is out there when we step out of the routine. We're starting early from Midrand, catching the sunrise on the N4, and heading straight into nature's soft life.
+                    </p>
+                </div>
+
+                <div id="about-content" class="tab-content hidden">
+                    <h3 class="text-3xl md:text-4xl font-bold text-orange-700 mb-6 heading-font-bold text-center">About This Trip <span class="text-orange-500">🚐</span></h3>
+                    <div class="space-y-6 text-gray-700 content-font">
+                        <div>
+                            <h4 class="font-semibold text-2xl text-orange-800 mb-2 flex items-center justify-center md:justify-start"><span class="mr-3 text-3xl">🚗</span> Transport:</h4>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li>Comfortable road trip travel across Mpumalanga</li>
+                                <li>Fuel budget and toll gate costs covered</li>
+                                <li>Self-drive experience through scenic routes and hidden gems</li>
+                            </ul>
                         </div>
+                        <div>
+                            <h4 class="font-semibold text-2xl text-orange-800 mb-2 flex items-center justify-center md:justify-start"><span class="mr-3 text-3xl">🏡</span> Accommodation:</h4>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li>1 Night at Luxury Tented Camp: Leadwood, Hoedspruit</li>
+                                <li>1 Night at Aha Nkambeni Safari Camp</li>
+                                <li>2 Nights at A-Frame Cabin in Marloth Park</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-2xl text-orange-800 mb-2 flex items-center justify-center md:justify-start"><span class="mr-3 text-3xl">🎉</span> Activities:</h4>
+                            <ul class="list-disc list-inside ml-4 space-y-1">
+                                <li>Graskop Gorge Lift entrance, zipline & forest walk</li>
+                                <li>Visits to iconic spots: God's Window, Pinnacle Rock, Bourke's Luck Potholes, Lisbon Falls, Blyde River Canyon Boat Cruise</li>
+                                <li>Game Drive experience, Go Karting in Marloth Park</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="team-content" class="tab-content hidden">
+                    <h3 class="text-3xl md:text-4xl font-bold text-pink-700 mb-6 heading-font-bold text-center">Our Awesome Crew & Content Mission 🎥</h3>
+                    <div class="space-y-6 text-gray-700 content-font">
+                        <p>We're going on a Mpumalanga road trip! This isn't just a getaway, it's a creative adventure! The crew is made up of:</p>
+                        <ul class="list-disc list-inside ml-4 space-y-2">
+                            <li><span class="font-semibold">Katlego Pooe:</span> Capturing the fun side of road trips and lifestyle car content via <a href="https://instagram.com/drivewiththejitas" target="_blank" class="text-blue-500 hover:text-blue-700">@DriveWithTheJitas</a>.</li>
+                            <li><span class="font-semibold">Spiwe Moyo:</span> Our vibrant travel content creator, sharing breathtaking views and must-visit gems via <a href="https://instagram.com/lifewithpiwe" target="_blank" class="text-blue-500 hover:text-blue-700">@LifeWithPiwe</a>.</li>
+                            <li><span class="font-semibold">Monesha Maramwidze:</span> Our culinary queen, cooking up magic and flavor-packed content along the way via <a href="https://instagram.com/monesha_maramwidze" target="_blank" class="text-blue-500 hover:text-blue-700">@Monesha_Maramwidze</a>.</li>
+                            <li><span class="font-semibold">Sbanesihle Motlomelo:</span> The fantastic fourth member, ensuring all moments are captured and making memories!</li>
+                        </ul>
+                        <p>From ziplining and boat cruises to sunrise game drives and waterfall views, every moment is an opportunity to create, connect, and share something special with our audiences.</p>
+                        <p class="font-bold text-xl text-center mt-6">We're hitting the road to create content, make memories, and above all... HAVE FUN!</p>
+                        <div class="text-center mt-8">
+                            <p class="text-2xl heading-font-bold text-blue-600">Let's Have A Great Trip!</p>
+                            </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -333,33 +328,33 @@
             <h3 class="text-3xl md:text-4xl font-bold text-teal-700 mb-8 heading-font-bold text-center">Mpumalanga Moments 📸</h3>
             <div class="image-collage">
                 <div class="relative">
-                    <!-- RELIABLE IMAGE: Update this src to your image in the /images folder -->
-                    <img src="./images/bourkes-luck-potholes.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E0E0E0/333333?text=Bourke\'s+Luck+Potholes';" alt="Bourke's Luck Potholes" class="rounded-lg shadow-md">
+                    <!-- PLACEHOLDER FOR NOW -->
+                    <img src="https://placehold.co/600x400/E0E0E0/333333?text=Bourke's+Luck+Potholes" alt="Bourke's Luck Potholes" class="rounded-lg shadow-md">
                     <span class="gallery-item-caption">Bourke's Luck Potholes</span>
                 </div>
                 <div class="relative">
-                    <!-- RELIABLE IMAGE: Update this src to your image in the /images folder -->
-                    <img src="./images/graskop-gorge-lift.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E0E0E0/333333?text=Graskop+Gorge+Lift';" alt="Graskop Gorge Lift" class="rounded-lg shadow-md">
+                    <!-- PLACEHOLDER FOR NOW -->
+                    <img src="https://placehold.co/600x400/E0E0E0/333333?text=Graskop+Gorge+Lift" alt="Graskop Gorge Lift" class="rounded-lg shadow-md">
                     <span class="gallery-item-caption">Graskop Gorge Lift</span>
                 </div>
                 <div class="relative">
-                    <!-- RELIABLE IMAGE: Update this src to your image in the /images folder -->
-                    <img src="./images/lisbon-falls.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E0E0E0/333333?text=Lisbon+Falls';" alt="Lisbon Falls" class="rounded-lg shadow-md">
+                    <!-- PLACEHOLDER FOR NOW -->
+                    <img src="https://placehold.co/600x400/E0E0E0/333333?text=Lisbon+Falls" alt="Lisbon+Falls" class="rounded-lg shadow-md">
                     <span class="gallery-item-caption">Lisbon Falls</span>
                 </div>
                 <div class="relative">
-                    <!-- RELIABLE IMAGE: Update this src to your image in the /images folder -->
-                    <img src="./images/safari-game-drive.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E0E0E0/333333?text=Safari+Game+Drive';" alt="Game Drive" class="rounded-lg shadow-md">
+                    <!-- PLACEHOLDER FOR NOW -->
+                    <img src="https://placehold.co/600x400/E0E0E0/333333?text=Safari+Game+Drive" alt="Safari Game Drive" class="rounded-lg shadow-md">
                     <span class="gallery-item-caption">Exciting Game Drives</span>
                 </div>
                 <div class="relative">
-                    <!-- RELIABLE IMAGE: Update this src to your image in the /images folder -->
-                    <img src="./images/gods-window.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E0E0E0/333333?text=God\'s+Window+Panorama';" alt="God's Window" class="rounded-lg shadow-md">
+                    <!-- PLACEHOLDER FOR NOW -->
+                    <img src="https://placehold.co/600x400/E0E0E0/333333?text=God's+Window+Panorama" alt="God's Window" class="rounded-lg shadow-md">
                     <span class="gallery-item-caption">God's Window Panorama</span>
                 </div>
                 <div class="relative">
-                    <!-- RELIABLE IMAGE: Update this src to your image in the /images folder -->
-                    <img src="./images/sunrise-drive.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E0E0E0/333333?text=Sunrise+Drive';" alt="Sunrise Drive" class="rounded-lg shadow-md">
+                    <!-- PLACEHOLDER FOR NOW -->
+                    <img src="https://placehold.co/600x400/E0E0E0/333333?text=Sunrise+Drive" alt="Sunrise Drive" class="rounded-lg shadow-md">
                     <span class="gallery-item-caption">Sunrise Drives</span>
                 </div>
             </div>
@@ -417,7 +412,7 @@
 
       const jsPDF = window.jspdf.jsPDF;
       
-      // Boarding pass dimensions (in mm)
+      // Boarding pass dimensions (in mm) - Adjusted slightly for aesthetic padding
       const docWidth = 160;
       const docHeight = 75;
       const doc = new jsPDF({ orientation: 'landscape', unit: 'mm', format: [docWidth, docHeight] });
